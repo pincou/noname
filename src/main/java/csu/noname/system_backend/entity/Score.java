@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -23,6 +24,7 @@ import java.io.Serializable;
 @TableName("score")
 @ApiModel(value = "分数")
 public class Score implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

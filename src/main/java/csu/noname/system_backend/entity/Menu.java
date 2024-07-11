@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -23,6 +24,7 @@ import java.io.Serializable;
 @TableName("menu")
 @ApiModel(value = "菜单")
 public class Menu implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

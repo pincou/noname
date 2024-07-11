@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -23,6 +24,7 @@ import java.io.Serializable;
 @TableName("stu_cour")
 @ApiModel(value = "学生课程")
 public class StuCour implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
