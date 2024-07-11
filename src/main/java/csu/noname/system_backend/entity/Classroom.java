@@ -27,18 +27,22 @@ public class Classroom implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @TableId(value = "classroom",type = IdType.INPUT)
+    @TableId(value = "classroom_no",type = IdType.INPUT)
     @ApiModelProperty(value = "教室号")
     private Integer classroomNo;
+
     @TableField(value = "site_id")
     @ApiModelProperty(value = "所在楼栋号")
     private String site;
+
     @TableField(value = "state")
     @ApiModelProperty(value = "预约状态")
     private Integer state;
+
     @TableField(value = "capacity")
     @ApiModelProperty(value = "教室容量")
     private Integer capacity;
+
     @TableField("booked_by")
     @ApiModelProperty(value = "预约用户")
     private String bookedBy;
