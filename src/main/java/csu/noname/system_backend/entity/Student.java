@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,69 +18,36 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:03:23
  */
+@Data
+@Entity
+@TableName("student")
+@ApiModel(value = "学生")
 public class Student implements Serializable {
-    private static final long serialVersionUID = 629349849629881298L;
-    
-    private Long studentId;
-    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @TableId(value = "student_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "学号")
+    private long studentId;
+
+    @TableField(value = "student_name")
+    @ApiModelProperty(value = "学生姓名")
     private String studentName;
-    
+
+    @TableField(value = "department")
+    @ApiModelProperty(value = "所在部门")
     private String department;
-    
+
+    @TableField(value = "student_major")
+    @ApiModelProperty(value = "学生专业")
     private String studentMajor;
-    
-    private Integer studentGradeNo;
-    
-    private Integer classNo;
 
+    @TableField(value = "student_grade_no")
+    @ApiModelProperty(value = "年级编号")
+    private int studentGradeNo;
 
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getStudentMajor() {
-        return studentMajor;
-    }
-
-    public void setStudentMajor(String studentMajor) {
-        this.studentMajor = studentMajor;
-    }
-
-    public Integer getStudentGradeNo() {
-        return studentGradeNo;
-    }
-
-    public void setStudentGradeNo(Integer studentGradeNo) {
-        this.studentGradeNo = studentGradeNo;
-    }
-
-    public Integer getClassNo() {
-        return classNo;
-    }
-
-    public void setClassNo(Integer classNo) {
-        this.classNo = classNo;
-    }
-
+    @TableField(value = "class_no")
+    @ApiModelProperty(value = "班级编号")
+    private int classNo;
 }
 

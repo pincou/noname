@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,69 +18,36 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:03:22
  */
+@Data
+@Entity
+@TableName("menu")
+@ApiModel(value = "菜单")
 public class Menu implements Serializable {
-    private static final long serialVersionUID = 406386202672965655L;
-    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @TableId(value = "menu_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "菜单号")
     private Integer menuId;
-    
+
+    @TableField(value = "title")
+    @ApiModelProperty(value = "标题")
     private String title;
-    
+
+    @TableField(value = "path")
+    @ApiModelProperty(value = "路径")
     private String path;
-    
+
+    @TableField(value = "icon")
+    @ApiModelProperty(value = "图标")
     private String icon;
-    
-    private Integer userType;
-    
-    private Integer parentId;
 
+    @TableField(value = "user_type")
+    @ApiModelProperty(value = "用户类型")
+    private int userType;
 
-    public Integer getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(Integer menuId) {
-        this.menuId = menuId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public Integer getUserType() {
-        return userType;
-    }
-
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
-
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
-
+    @TableField(value = "parent_id")
+    @ApiModelProperty(value = "父级ID")
+    private int parentId;
 }
 

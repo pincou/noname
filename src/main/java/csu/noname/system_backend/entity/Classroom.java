@@ -10,7 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -31,20 +30,21 @@ public class Classroom implements Serializable {
     @ApiModelProperty(value = "教室号")
     private Integer classroomNo;
 
-    @TableField(value = "site_id")
-    @ApiModelProperty(value = "所在楼栋号")
-    private String site;
-
     @TableField(value = "state")
     @ApiModelProperty(value = "预约状态")
-    private Integer state;
+    private int state;
 
     @TableField(value = "capacity")
     @ApiModelProperty(value = "教室容量")
-    private Integer capacity;
+    private int capacity;
 
     @TableField("booked_by")
     @ApiModelProperty(value = "预约用户")
     private String bookedBy;
+
+    @TableField(value = "site_id")
+    @ApiModelProperty(value = "所在楼栋号")
+    private int siteId;
+
 }
 

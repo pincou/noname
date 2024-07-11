@@ -28,11 +28,7 @@ public class Course implements Serializable {
     @Id
     @TableId(value = "course_id", type = IdType.INPUT)
     @ApiModelProperty(value = "课程号")
-    private String courseId;
-
-    @TableField(value = "jint")
-    @ApiModelProperty(value = "课程类型")
-    private String jint;
+    private Integer courseId;
 
     @TableField(value = "course_name")
     @ApiModelProperty(value = "课程名称")
@@ -67,7 +63,7 @@ public class Course implements Serializable {
     private int chosen;
 
     @TableField(value = "site")
-    @ApiModelProperty(value = "上课地点")
+    @ApiModelProperty(value = "所在楼栋")
     private String site;
 
     @TableField(value = "classroom_no")

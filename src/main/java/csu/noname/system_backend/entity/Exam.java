@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,69 +18,36 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:12:07
  */
+@Data
+@Entity
+@TableName("exam")
+@ApiModel(value = "考试")
 public class Exam implements Serializable {
-    private static final long serialVersionUID = -94227660568153074L;
-    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @TableId(value = "course_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "课程号")
     private Integer courseId;
-    
+
+    @TableField(value = "course_name")
+    @ApiModelProperty(value = "课程名称")
     private String courseName;
-    
+
+    @TableField(value = "data")
+    @ApiModelProperty(value = "考试日期")
     private String data;
-    
+
+    @TableField(value = "time")
+    @ApiModelProperty(value = "考试时间")
     private String time;
-    
+
+    @TableField(value = "site")
+    @ApiModelProperty(value = "考试地点")
     private String site;
-    
-    private Integer type;
 
-
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
+    @TableField(value = "type")
+    @ApiModelProperty(value = "考试类型")
+    private int type;
 }
 

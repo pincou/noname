@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,79 +18,44 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:03:23
  */
+@Data
+@Entity
+@TableName("score")
+@ApiModel(value = "分数")
 public class Score implements Serializable {
-    private static final long serialVersionUID = 780930442614834053L;
-    
-    private Integer courseId;
-    
-    private Long studentId;
-    
-    private Object totalScore;
-    
-    private Object userScore;
-    
-    private Object finalScore;
-    
-    private Object usualPercentage;
-    
-    private Object finalPercentage;
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @TableId(value = "score_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "分数号")
+    private Integer scoreId;
 
-    public Integer getCourseId() {
-        return courseId;
-    }
+    @TableField(value = "course_id")
+    @ApiModelProperty(value = "课程ID")
+    private int courseId;
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
+    @TableField(value = "student_id")
+    @ApiModelProperty(value = "学生ID")
+    private long studentId;
 
-    public Long getStudentId() {
-        return studentId;
-    }
+    @TableField(value = "total_score")
+    @ApiModelProperty(value = "总成绩")
+    private double totalScore;
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
+    @TableField(value = "user_score")
+    @ApiModelProperty(value = "用户成绩")
+    private double userScore;
 
-    public Object getTotalScore() {
-        return totalScore;
-    }
+    @TableField(value = "final_score")
+    @ApiModelProperty(value = "最终成绩")
+    private double finalScore;
 
-    public void setTotalScore(Object totalScore) {
-        this.totalScore = totalScore;
-    }
+    @TableField(value = "usual_percentage")
+    @ApiModelProperty(value = "平时成绩百分比")
+    private double usualPercentage;
 
-    public Object getUserScore() {
-        return userScore;
-    }
-
-    public void setUserScore(Object userScore) {
-        this.userScore = userScore;
-    }
-
-    public Object getFinalScore() {
-        return finalScore;
-    }
-
-    public void setFinalScore(Object finalScore) {
-        this.finalScore = finalScore;
-    }
-
-    public Object getUsualPercentage() {
-        return usualPercentage;
-    }
-
-    public void setUsualPercentage(Object usualPercentage) {
-        this.usualPercentage = usualPercentage;
-    }
-
-    public Object getFinalPercentage() {
-        return finalPercentage;
-    }
-
-    public void setFinalPercentage(Object finalPercentage) {
-        this.finalPercentage = finalPercentage;
-    }
-
+    @TableField(value = "final_percentage")
+    @ApiModelProperty(value = "最终成绩百分比")
+    private double finalPercentage;
 }
 
