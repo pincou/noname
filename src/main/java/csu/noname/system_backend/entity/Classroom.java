@@ -24,16 +24,15 @@ import java.io.Serializable;
 @TableName("classroom")
 @ApiModel(value = "教室")
 public class Classroom implements Serializable {
-    @Serial
     private static final long serialVersionUID = 1L;
+
     @Id
-    @TableId(value = "classroom_no",type = IdType.INPUT)
+    @TableId(value = "classroom",type = IdType.INPUT)
     @ApiModelProperty(value = "教室号")
     private Integer classroomNo;
-    @Id
-    @TableId(value = "site_id",type = IdType.INPUT)
+    @TableField(value = "site_id")
     @ApiModelProperty(value = "所在楼栋号")
-    private int site_id;
+    private String site;
     @TableField(value = "state")
     @ApiModelProperty(value = "预约状态")
     private Integer state;

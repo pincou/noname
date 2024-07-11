@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,39 +18,24 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:03:23
  */
+@Data
+@Entity
+@TableName("user")
+@ApiModel(value = "用户")
 public class User implements Serializable {
-    private static final long serialVersionUID = 474486339829048183L;
-    
-    private Long username;
-    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @TableId(value = "username", type = IdType.INPUT)
+    @ApiModelProperty(value = "用户名")
+    private long username;
+
+    @TableField(value = "password")
+    @ApiModelProperty(value = "密码")
     private String password;
-    
-    private Integer userType;
 
-
-    public Long getUsername() {
-        return username;
-    }
-
-    public void setUsername(Long username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Integer getUserType() {
-        return userType;
-    }
-
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
-
+    @TableField(value = "user_type")
+    @ApiModelProperty(value = "用户类型")
+    private int userType;
 }
 

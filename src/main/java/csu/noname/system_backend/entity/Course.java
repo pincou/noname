@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,139 +18,64 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:12:07
  */
+@Data
+@Entity
+@TableName("course")
+@ApiModel(value = "课程")
 public class Course implements Serializable {
-    private static final long serialVersionUID = 164922298078226439L;
-    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @TableId(value = "course_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "课程号")
     private Integer courseId;
-    
+
+    @TableField(value = "course_name")
+    @ApiModelProperty(value = "课程名称")
     private String courseName;
-    
-    private Object courseCredit;
-    
-    private Integer courseTerm;
-    
+
+    @TableField(value = "course_credit")
+    @ApiModelProperty(value = "课程学分")
+    private double courseCredit;
+
+    @TableField(value = "course_term")
+    @ApiModelProperty(value = "课程学期")
+    private int courseTerm;
+
+    @TableField(value = "course_major")
+    @ApiModelProperty(value = "课程专业")
     private String courseMajor;
-    
-    private Integer courseGradeNo;
-    
-    private Integer courseContain;
-    
-    private Integer courseLeft;
-    
-    private Integer chosen;
-    
+
+    @TableField(value = "course_grade_no")
+    @ApiModelProperty(value = "课程年级编号")
+    private int courseGradeNo;
+
+    @TableField(value = "course_contain")
+    @ApiModelProperty(value = "课程容量")
+    private int courseContain;
+
+    @TableField(value = "course_left")
+    @ApiModelProperty(value = "课程剩余名额")
+    private int courseLeft;
+
+    @TableField(value = "chosen")
+    @ApiModelProperty(value = "已选人数")
+    private int chosen;
+
+    @TableField(value = "site")
+    @ApiModelProperty(value = "所在楼栋")
     private String site;
-    
-    private Integer classroomNo;
-    
-    private Integer startWeek;
-    
-    private Integer endWeek;
 
+    @TableField(value = "classroom_no")
+    @ApiModelProperty(value = "教室编号")
+    private int classroomNo;
 
-    public Integer getCourseId() {
-        return courseId;
-    }
+    @TableField(value = "start_week")
+    @ApiModelProperty(value = "课程开始周")
+    private int startWeek;
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public Object getCourseCredit() {
-        return courseCredit;
-    }
-
-    public void setCourseCredit(Object courseCredit) {
-        this.courseCredit = courseCredit;
-    }
-
-    public Integer getCourseTerm() {
-        return courseTerm;
-    }
-
-    public void setCourseTerm(Integer courseTerm) {
-        this.courseTerm = courseTerm;
-    }
-
-    public String getCourseMajor() {
-        return courseMajor;
-    }
-
-    public void setCourseMajor(String courseMajor) {
-        this.courseMajor = courseMajor;
-    }
-
-    public Integer getCourseGradeNo() {
-        return courseGradeNo;
-    }
-
-    public void setCourseGradeNo(Integer courseGradeNo) {
-        this.courseGradeNo = courseGradeNo;
-    }
-
-    public Integer getCourseContain() {
-        return courseContain;
-    }
-
-    public void setCourseContain(Integer courseContain) {
-        this.courseContain = courseContain;
-    }
-
-    public Integer getCourseLeft() {
-        return courseLeft;
-    }
-
-    public void setCourseLeft(Integer courseLeft) {
-        this.courseLeft = courseLeft;
-    }
-
-    public Integer getChosen() {
-        return chosen;
-    }
-
-    public void setChosen(Integer chosen) {
-        this.chosen = chosen;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
-    }
-
-    public Integer getClassroomNo() {
-        return classroomNo;
-    }
-
-    public void setClassroomNo(Integer classroomNo) {
-        this.classroomNo = classroomNo;
-    }
-
-    public Integer getStartWeek() {
-        return startWeek;
-    }
-
-    public void setStartWeek(Integer startWeek) {
-        this.startWeek = startWeek;
-    }
-
-    public Integer getEndWeek() {
-        return endWeek;
-    }
-
-    public void setEndWeek(Integer endWeek) {
-        this.endWeek = endWeek;
-    }
-
+    @TableField(value = "end_week")
+    @ApiModelProperty(value = "课程结束周")
+    private int endWeek;
 }
 

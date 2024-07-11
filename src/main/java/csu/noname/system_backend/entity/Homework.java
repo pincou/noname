@@ -1,5 +1,15 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,79 +18,41 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-07-11 13:12:07
  */
+@Data
+@Entity
+@TableName("homework")
+@ApiModel(value = "作业")
 public class Homework implements Serializable {
-    private static final long serialVersionUID = -95533526549143313L;
-    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @TableId(value = "homework_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "作业号")
     private Integer homeworkId;
-    
-    private Integer courseId;
-    
-    private Long teacherId;
-    
-    private Integer homeworkType;
-    
+
+    @TableField(value = "course_id")
+    @ApiModelProperty(value = "课程ID")
+    private int courseId;
+
+    @TableField(value = "teacher_id")
+    @ApiModelProperty(value = "教师ID")
+    private long teacherId;
+
+    @TableField(value = "homework_type")
+    @ApiModelProperty(value = "作业类型")
+    private int homeworkType;
+
+    @TableField(value = "homework_title")
+    @ApiModelProperty(value = "作业标题")
     private String homeworkTitle;
-    
+
+    @TableField(value = "content")
+    @ApiModelProperty(value = "作业内容")
     private String content;
-    
+
+    @TableField(value = "teacher_file")
+    @ApiModelProperty(value = "教师文件")
     private String teacherFile;
-
-
-    public Integer getHomeworkId() {
-        return homeworkId;
-    }
-
-    public void setHomeworkId(Integer homeworkId) {
-        this.homeworkId = homeworkId;
-    }
-
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Integer getHomeworkType() {
-        return homeworkType;
-    }
-
-    public void setHomeworkType(Integer homeworkType) {
-        this.homeworkType = homeworkType;
-    }
-
-    public String getHomeworkTitle() {
-        return homeworkTitle;
-    }
-
-    public void setHomeworkTitle(String homeworkTitle) {
-        this.homeworkTitle = homeworkTitle;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getTeacherFile() {
-        return teacherFile;
-    }
-
-    public void setTeacherFile(String teacherFile) {
-        this.teacherFile = teacherFile;
-    }
 
 }
 
