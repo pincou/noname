@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageRequest;
 /**
  * (Score)表服务接口
  *
- * @author makejava
+ * @author zyh
  * @since 2024-07-11 13:03:23
  */
 public interface ScoreService {

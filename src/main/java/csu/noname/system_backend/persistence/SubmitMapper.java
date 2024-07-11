@@ -1,4 +1,9 @@
 package csu.noname.system_backend.persistence;
 
-public class SubmitMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import csu.noname.system_backend.entity.Submit;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface SubmitMapper extends BaseMapper<Submit> {
 }

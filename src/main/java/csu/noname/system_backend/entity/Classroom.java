@@ -24,8 +24,8 @@ import java.io.Serializable;
 @TableName("classroom")
 @ApiModel(value = "教室")
 public class Classroom implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
-
     @Id
     @TableId(value = "classroom",type = IdType.INPUT)
     @ApiModelProperty(value = "教室号")
