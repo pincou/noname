@@ -41,10 +41,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByUsername(String username) {
+    public UserVO getUserByUsername(String username) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username",username);
-        return userMapper.selectOne(queryWrapper);
+        User user= userMapper.selectOne(queryWrapper);
+        if (user!=null) {
+            UserVO userVo = new UserVO();
+            userVo.setUsername(username);
+            userVo.setPassword(user.getPassword());
+            userVo.setUsertype(user.getUserType());
+            return userVo;
+        }
+        else return null;
     }
 
     @Override

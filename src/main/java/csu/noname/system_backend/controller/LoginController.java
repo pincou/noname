@@ -25,9 +25,9 @@ public class LoginController {
             @RequestParam("password") @NotBlank(message = "密码不能为空")String password){
         UserVO userVO= userService.getUser(username,password);
         if (userVO!=null){
-            return CommonResponse.createForSuccess();
+            return CommonResponse.createForSuccess(2000,"成功获取",userVO);
         }
-
+        return  CommonResponse.createForError();
     }
 
 }
