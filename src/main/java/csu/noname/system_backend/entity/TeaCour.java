@@ -1,10 +1,13 @@
 package csu.noname.system_backend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -22,12 +25,14 @@ import java.io.Serializable;
 public class TeaCour implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableField(value = "course_id")
-    @ApiModelProperty(value = "课程ID")
-    private int courseId;
+    @Id
+    @TableId(value = "course_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "课程号")
+    private Integer courseId;
 
-    @TableField(value = "teacher_id")
-    @ApiModelProperty(value = "教师ID")
-    private long teacherId;
+    @Id
+    @TableId(value = "teacher_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "教师号")
+    private Integer teacherId;
 }
 

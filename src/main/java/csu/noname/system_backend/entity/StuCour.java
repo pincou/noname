@@ -25,12 +25,14 @@ import java.io.Serializable;
 public class StuCour implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableField(value = "course_id")
-    @ApiModelProperty(value = "课程ID")
-    private int courseId;
+    @Id
+    @TableId(value = "course_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "课程号")
+    private Integer courseId;
 
-    @TableField(value = "student_id")
-    @ApiModelProperty(value = "学生ID")
-    private long studentId;
+    @Id
+    @TableId(value = "student_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "学生号")
+    private Integer studentId;
 }
 

@@ -26,17 +26,14 @@ public class Score implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @TableId(value = "score_id", type = IdType.INPUT)
-    @ApiModelProperty(value = "分数号")
-    private Integer scoreId;
+    @TableId(value = "course_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "课程号")
+    private Integer courseId;
 
-    @TableField(value = "course_id")
-    @ApiModelProperty(value = "课程ID")
-    private int courseId;
-
-    @TableField(value = "student_id")
-    @ApiModelProperty(value = "学生ID")
-    private long studentId;
+    @Id
+    @TableId(value = "student_id", type = IdType.INPUT)
+    @ApiModelProperty(value = "学生号")
+    private Integer studentId;
 
     @TableField(value = "total_score")
     @ApiModelProperty(value = "总成绩")
