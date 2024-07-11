@@ -8,4 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "教室预约管理接口")
 @Transactional
 public class ClassRoomController {
+
 }

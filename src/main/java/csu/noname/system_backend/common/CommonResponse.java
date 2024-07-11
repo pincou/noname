@@ -10,7 +10,7 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CommonResponse<T> implements Serializable {
     private String msg;
-    private int status;
+    private final int status;
     private T data;
 
     private CommonResponse(int status){
