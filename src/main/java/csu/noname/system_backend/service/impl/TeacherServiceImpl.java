@@ -1,6 +1,9 @@
 package csu.noname.system_backend.service.impl;
 
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import csu.noname.system_backend.entity.Teacher;
+import csu.noname.system_backend.persistence.TeacherMapper;
 import csu.noname.system_backend.service.TeacherService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,5 +19,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 @Transactional
 @Service("teacherService")
-public class TeacherServiceImpl implements TeacherService {
+public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> implements TeacherService {
 }

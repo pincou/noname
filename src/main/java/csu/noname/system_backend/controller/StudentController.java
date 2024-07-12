@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@Api(tags ="学生管理接口" )
+@Api(tags ="学生功能管理接口" )
 @Transactional
 @CrossOrigin("http://localhost:5173")
 @RequestMapping("/student")
