@@ -32,6 +32,8 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentMapper studentMapper;
     @Autowired
+    CourseMapper courseMapper;
+    @Autowired
     ScoreMapper scoreMapper;
     @Override
     public StudentVO getStudentByID(long studentID) {
@@ -92,7 +94,21 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public int getRankOfGrade(long studentID) {
-        return 0;
+    public double getTotalAVGGrade(long studentID) {
+        List<ScoreVO> scoreVOS= getStudentAllScore(studentID);
+        QueryWrapper<Course> queryWrapper=new QueryWrapper<>();
+        Course  course=new Course();
+        double credit=0;
+        double total=0;
+        double TotalCredit=0;
+        for (ScoreVO scoreVO : scoreVOS) {
+            queryWrapper.eq("course_id", scoreVO.getCourseId());
+            course = courseMapper.selectOne(queryWrapper);
+            credit = course.getCourseCredit();
+            TotalCredit += credit;
+            total = scoreVO.getFinalScore() * credit;
+        }
+        total=total/TotalCredit;
+        return total;
     }
 }

@@ -16,6 +16,6 @@ public interface StudentService {
     public StudentVO getStudentByID(long studentID);
     public List<ScoreVO> getStudentAllScore(long studentID);
     public List<Integer> getStudentAllCourseID(long studentID);
-    public int getRankOfGrade(long studentID);
+    public double getTotalAVGGrade(long studentID);
 
 }
