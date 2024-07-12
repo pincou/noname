@@ -37,7 +37,7 @@ public class Student implements Serializable {
     private String studentName;
 
     @TableField(value = "department")
-    @ApiModelProperty(value = "所在部门")
+    @ApiModelProperty(value = "所在院系")
     private String department;
 
     @TableField(value = "student_major")
@@ -45,7 +45,7 @@ public class Student implements Serializable {
     private String studentMajor;
 
     @TableField(value = "student_grade_no")
-    @ApiModelProperty(value = "年级编号")
+    @ApiModelProperty(value = "所在年级")
     private int studentGradeNo;
 
     @TableField(value = "class_no")

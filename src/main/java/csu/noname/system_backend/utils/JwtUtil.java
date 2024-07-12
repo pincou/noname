@@ -9,13 +9,13 @@ import java.util.Map;
 
 public class JwtUtil {
     /**
-     * token过期时间24h
+     * token过期时间一周
      */
-    private static final long EXPIRE_TIME = 60* 60 * 1000 * 24;
+    private static final long EXPIRE_TIME = 60* 60 * 1000 * 24*7;
     /**
      * token秘钥
      */
-    private static final String SECRET = "csu_stu_web_software";
+    private static final String SECRET = "csu_stu_teach_process";
 
     public static String getToken(Map<String, Object> claims) {
         return JWT.create()

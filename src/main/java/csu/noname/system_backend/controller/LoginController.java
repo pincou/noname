@@ -1,33 +1,58 @@
 package csu.noname.system_backend.controller;
 
 
-import csu.noname.system_backend.Vo.UserVO;
+import csu.noname.system_backend.VO.UserVO;
 import csu.noname.system_backend.common.CommonResponse;
 import csu.noname.system_backend.service.UserService;
+import csu.noname.system_backend.utils.JwtUtil;
 import io.swagger.annotations.Api;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @Api(tags ="用户登录接口" )
 @Transactional
 @CrossOrigin("http://localhost:5173")
-@RequestMapping("/login")
+@RequestMapping("/")
 public class LoginController {
     @Autowired
     UserService userService;
-
-    @GetMapping("/getuser")
-    public CommonResponse<UserVO> search(
+    @PostMapping("/login")
+    @ResponseBody
+    public CommonResponse<String> UserLogin(
             @RequestParam("username")@NotBlank(message = "账户不能为空") String username,
             @RequestParam("password") @NotBlank(message = "密码不能为空")String password){
-        UserVO userVO= userService.getUser(username,password);
+
+        UserVO userVO = userService.getUser(username,password);
         if (userVO!=null){
-            return CommonResponse.createForSuccess(2000,"成功获取",userVO);
+            Map<String,Object> claims=new HashMap<>();
+            claims.put("username",username);
+            String token= JwtUtil.getToken(claims);
+            return CommonResponse.createForSuccess(2000,
+                    "登录成功"+"用户类型为"+userVO.getUsertype(),
+                    token);
         }
-        return  CommonResponse.createForError();
+        else{
+            return  CommonResponse.createForError(1001,
+                    "Invalid username or password",
+                    null);
+        }
     }
+
+//    @GetMapping("/getuser")
+//    public CommonResponse<UserVO> search(
+//            @RequestParam("username")@NotBlank(message = "账户不能为空") String username,
+//            @RequestParam("password") @NotBlank(message = "密码不能为空")String password){
+//        UserVO userVO= userService.getUser(username,password);
+//        if (userVO!=null){
+//            return CommonResponse.createForSuccess(2000,"成功获取",userVO);
+//        }
+//        return  CommonResponse.createForError();
+//    }
 
 }

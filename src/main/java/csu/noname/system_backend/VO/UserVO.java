@@ -1,4 +1,4 @@
-package csu.noname.system_backend.Vo;
+package csu.noname.system_backend.VO;
 
 import lombok.Data;
 

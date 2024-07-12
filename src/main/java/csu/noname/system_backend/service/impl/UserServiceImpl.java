@@ -2,7 +2,7 @@ package csu.noname.system_backend.service.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import csu.noname.system_backend.Vo.UserVO;
+import csu.noname.system_backend.VO.UserVO;
 import csu.noname.system_backend.entity.User;
 import csu.noname.system_backend.persistence.UserMapper;
 import csu.noname.system_backend.service.UserService;

@@ -42,7 +42,7 @@ public class Score implements Serializable {
     private double totalScore;
 
     @TableField(value = "user_score")
-    @ApiModelProperty(value = "用户成绩")
+    @ApiModelProperty(value = "平时成绩")
     private double userScore;
 
     @TableField(value = "final_score")
@@ -54,7 +54,7 @@ public class Score implements Serializable {
     private double usualPercentage;
 
     @TableField(value = "final_percentage")
-    @ApiModelProperty(value = "最终成绩百分比")
+    @ApiModelProperty(value = "期末成绩百分比")
     private double finalPercentage;
 }
 

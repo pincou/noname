@@ -1,7 +1,6 @@
 package csu.noname.system_backend.service;
 
-import csu.noname.system_backend.Vo.UserVO;
-import csu.noname.system_backend.entity.User;
+import csu.noname.system_backend.VO.UserVO;
 
 
 /**
