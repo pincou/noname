@@ -28,7 +28,7 @@ public class Classroom implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @MppMultiId
-    @TableField(value = "classroom")
+    @TableField(value = "classroom_no")
     @ApiModelProperty(value = "教室号")
     private Integer classroomNo;
     @MppMultiId

@@ -22,7 +22,7 @@ import java.util.Map;
 @RequestMapping("/")
 public class LoginController {
     @Autowired
-    UserService userService;
+    private UserService userService;
     @PostMapping("/login")
     @ApiOperation(value = "登录功能")
     @ResponseBody
@@ -36,7 +36,7 @@ public class LoginController {
 //            claims.put("username",username);
 //            String token= JwtUtil.getToken(claims);
             return CommonResponse.createForSuccess(
-                    "登录成功"+"用户类型为"+userVO.getUsertype()
+                    "登录成功"+"用户类型为"+userVO.getUsertype(),null
 //                    token
             );
         }
